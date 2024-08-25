@@ -1,5 +1,5 @@
 import { Text, View, TextInput, StyleSheet, Dimensions, Pressable, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from "react-native";
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import Svg, { Image, Ellipse, ClipPath } from 'react-native-svg';
 import Animated, { 
@@ -19,6 +19,7 @@ export default function Index() {
   const imagePosition = useSharedValue(1);
   const formButtonScale = useSharedValue(1);
   const [isRegistering, setIsRegistering] = useState(false);
+  const router = useRouter();
 
   const imageAnimatedStyle = useAnimatedStyle(() => {
     const interpolation = interpolate(imagePosition.value, [0, 1], [-height / 2, 0])
@@ -63,6 +64,10 @@ export default function Index() {
       setIsRegistering(false);
       runOnJS(setIsRegistering)(false);
     }
+
+    // setTimeout(() => {
+    //   router.push('./auth/authIndex');
+    // }, 1000);
   }
 
   const registerHandler = () => {
@@ -71,6 +76,9 @@ export default function Index() {
       setIsRegistering(true);
       runOnJS(setIsRegistering)(true);
     }
+    // setTimeout(() => {
+    //   router.push('./auth/authIndex');
+    // }, 1000);
   }
 
   return (
@@ -130,7 +138,12 @@ export default function Index() {
             style={styles.textInput}
           />
           <Animated.View style={[styles.formButton, formButtonAnimatedStyle]}>
-            <Pressable onPress={() => formButtonScale.value = withSequence(withSpring(1.5), withSpring(1))}>
+            <Pressable 
+              onPress={() => {formButtonScale.value = withSequence(withSpring(1.5), withSpring(1));
+               setTimeout(() => {
+                 router.push('./(tabs)');
+               }, 800);
+            }}>
               <Text style={styles.buttonText}>{isRegistering ? 'REGISTER' : 'LOG IN'}</Text>
             </Pressable>
           </Animated.View>
