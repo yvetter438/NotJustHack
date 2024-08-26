@@ -35,11 +35,11 @@ export default function Upload() {
                     source={{uri: image,}}
                 /> 
                 ) : (
-                    <View/>
+                    <View style={styles.image}></View>
                 )}
                 <Text 
                     onPress={pickImage}
-                    style={styles.text}>Change</Text>
+                    style={styles.text}>Upload Video</Text>
 
                 <TextInput 
                     value={caption}
