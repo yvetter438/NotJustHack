@@ -7,6 +7,7 @@ import { useRef, useState } from 'react';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useEffect } from 'react';
 
+
 type VideoPost = {
     post: {
         id: string;
@@ -23,6 +24,7 @@ export default function VideoPost({post, activePostId }: VideoPost) {
   const { height }= useWindowDimensions();
   const tabBarHeight: number = useBottomTabBarHeight();
   const adjustedHeight: number = height - tabBarHeight;
+
 
   useEffect(() => {
     if (!video.current) {

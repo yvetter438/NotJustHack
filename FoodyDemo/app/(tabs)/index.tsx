@@ -2,6 +2,7 @@ import VideoPost from '@/components/VideoPost';
 import { View,  StyleSheet, FlatList  } from 'react-native';
 import { useState, useRef, useEffect } from 'react';
 
+
 const dummyPosts = [{
   id: '2',
   video: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/vertical-videos/2.mp4',
@@ -63,8 +64,8 @@ export default function Tab() {
   ]);
 
   return (
+    
     <View style={styles.container}>
-
       <FlatList
       data={posts} 
       renderItem={({ item }) => <VideoPost post={item} activePostId={activePostId} />}
@@ -75,8 +76,8 @@ export default function Tab() {
       onEndReached={onEndReached}
       onEndReachedThreshold={1}
     />
-      
     </View>
+    
   );
 };
 

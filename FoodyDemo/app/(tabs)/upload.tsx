@@ -45,7 +45,8 @@ export default function Upload() {
                     value={caption}
                     onChangeText={(newValue) => setCaption(newValue)}
                     style={styles.caption}
-                    placeholder="What's on your mind" 
+                    placeholder="Caption" 
+                    placeholderTextColor={'#000'}
                 />
             </View>
 
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
         borderColor: '#ccc',
         borderWidth: 1,
         borderRadius: 8,
+        
     },
     button: {
         backgroundColor: '#007BFF',

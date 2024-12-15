@@ -5,6 +5,13 @@ export default function TabLayout() {
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: 'blue' }}>
       <Tabs.Screen
+        name="recipe"
+        options={{
+          title: 'Recipe',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="bars" color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: 'Feed',
